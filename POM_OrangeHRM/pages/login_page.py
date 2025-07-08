@@ -12,7 +12,7 @@ class LoginPage(BasePage):
         self.enter_username(username)
         self.enter_password(password)
         self.click_login()
-
+        
     def enter_username(self, username):
         self.enter_text(self.username_input, username)
 
@@ -21,4 +21,3 @@ class LoginPage(BasePage):
 
     def click_login(self):
         self.click(self.login_btn)
-

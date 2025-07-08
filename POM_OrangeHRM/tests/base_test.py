@@ -26,3 +26,6 @@ class BaseTest:
                 attachment_type=allure.attachment_type.PNG
             )
         self.driver.quit()
+
+
+        
