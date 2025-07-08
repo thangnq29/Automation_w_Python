@@ -13,11 +13,9 @@ class ConfigReader:
                 config_path = os.path.join(project_root, 'test_setting.json')
             except Exception as e:
                 raise RuntimeError(f"Loi xac dinh duong dan file: {e}")
-            
             # Kiem tra file ton tai
             if not os.path.isfile(config_path):
                 raise FileNotFoundError(f"Khong tim thay file cau hinh tai: {config_path}")
-        
             # Doc va parse Json
             try:
                 with open(config_path, 'r', encoding='utf-8') as f:
