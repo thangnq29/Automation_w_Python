@@ -1,14 +1,8 @@
+
 import pytest
+import allure
 from selenium import webdriver
 from utils.config_reader import ConfigReader
-import allure
-
-@pytest.hookimpl(tryfirst=True, hookwrapper=True)
-def pytest_runtest_makereport(item, call):
-    # Hook để lấy kết quả test
-    outcome = yield
-    rep = outcome.get_result()
-    setattr(item, "rep_call" + rep.when, rep)
 
 class BaseTest:
     @pytest.fixture(autouse=True)
@@ -18,14 +12,21 @@ class BaseTest:
         self.driver.get(ConfigReader.get_base_url())
         request.cls.driver = self.driver
         yield
-        # Nếu fail, chụp màn hình với allure
-        if hasattr(request.node, "rep_call") and request.node.rep_call.failed:
-            allure.attach(
-                self.driver.get_screenshot_as_png(),
-                name=f"failed_{request.node.name}",
-                attachment_type=allure.attachment_type.PNG
-            )
+
+
+        # Chụp màn nếu thất bại
+        rep = getattr(request.node, "rep_call", None)
+        if rep and rep.failed:
+            try:
+                screenshot = self.driver.get_screenshot_as_png()
+                allure.attach(
+                    screenshot,
+                    name="Screenshot on Failure",
+                    attachment_type=allure.attachment_type.PNG
+                )
+                print("[Allure] Screenshot attached")
+            except Exception as e:
+                print(f"[Allure] Failed to attach screenshot: {e}")
+
         self.driver.quit()
 
-
-        

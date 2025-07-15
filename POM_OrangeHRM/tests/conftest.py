@@ -1,10 +1,9 @@
-# # conftest.py
+import pytest
+import allure
 
-# import pytest
-# from pages.login_page import LoginPage
-# from utils.config_reader import ConfigReader
-
-# @pytest.fixture
-# def login(driver):
-#     login_page = LoginPage(driver)
-#     login_page.do_login(ConfigReader.get_username(), ConfigReader.get_password())
+@pytest.hookimpl(tryfirst=True, hookwrapper=True)
+def pytest_runtest_makereport(item, call):
+    # Hook chuẩn để lưu trạng thái test
+    outcome = yield
+    rep = outcome.get_result()
+    setattr(item, f"rep_{rep.when}", rep)

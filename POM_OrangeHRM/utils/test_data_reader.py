@@ -36,3 +36,7 @@ class TestDataReader:
     @staticmethod
     def get_lastname():
         return TestDataReader.load_data().get('employee_name', {}).get('lastname')
+
+    @staticmethod
+    def get_expected_title():
+        return TestDataReader.load_data().get('title')
