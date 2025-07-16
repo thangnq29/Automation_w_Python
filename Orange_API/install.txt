@@ -1,0 +1,23 @@
+-- install .vevn 
+python -m venv .venv
+
+-- active 
+.venv\Scripts\activate.bat (cmd)
+.venv\Scripts\Activate.ps1 (powershell)
+
+-- delete
+
+rmdir /s /q .venv (cmd)
+Remove-Item -Recurse -Force .venv (powershell)
+
+pip install selenium
+
+pip install pytest
+
+pip install webdriver-manager
+
+pip install allure-pytest
+
+-----run + report
+pytest --alluredir=report
+allure serve report

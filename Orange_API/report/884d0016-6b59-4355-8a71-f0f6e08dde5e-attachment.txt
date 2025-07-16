@@ -1,0 +1,3 @@
+[Wait] Đang chờ element hiển thị: ('name', 'username')
+[Wait] Đang chờ element hiển thị: ('name', 'password')
+[Wait] Đang chờ element có thể click: ('xpath', "//button[@type='submit']")
