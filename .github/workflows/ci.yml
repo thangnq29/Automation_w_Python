@@ -15,8 +15,8 @@ jobs:
       fail-fast: false
       matrix:
         suite:
-          - tests/test_login.py
-          - tests/test_edit_info.py
+          - POM_OrangeHRM/tests/test_login.py
+          - POM_OrangeHRM/tests/test_edit_info.py
 
     steps:
       - name: Checkout code
