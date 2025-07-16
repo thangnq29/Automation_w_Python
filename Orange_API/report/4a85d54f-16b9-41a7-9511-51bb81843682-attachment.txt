@@ -1,0 +1,2 @@
+[Wait] Đang chờ element hiển thị: ('name', 'username')
+[ERROR] Timeout khi chờ element: ('name', 'username')
