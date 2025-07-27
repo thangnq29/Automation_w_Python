@@ -9,7 +9,6 @@ class InventoryPage(BasePage):
         super().__init__(driver)
         self.add_to_cart_btn = (By.XPATH, "//button[contains(@id, 'add-to-cart')]")
         self.cart_btn = (By.XPATH, "//a[@class='shopping_cart_link']")
-        self.popup_ok_btn = (By.XPATH, "//button[normalize-space()='OK']")
 
     def add_n_products_to_cart(self, n):
         buttons = self.find_elements(self.add_to_cart_btn)
