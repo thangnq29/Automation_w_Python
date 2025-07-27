@@ -1,0 +1,18 @@
+{
+  "base_url": "https://www.saucedemo.com/",
+  "credentials": {
+    "username": "standard_user",
+    "password": "secret_sauce"
+  },
+  "checkout_info": {
+    "first_name": "John",
+    "last_name": "Doe",
+    "postal_code": "70000"
+  },
+  "timeout": {
+    "implicit": 5,
+    "explicit": 15
+  },
+  "expected_url": "https://www.saucedemo.com/inventory.html",
+  "expected_message" : "Thank , you for your order! Your order has been dispatched, and will arrive just as fast as the pony can get there!"
+}
